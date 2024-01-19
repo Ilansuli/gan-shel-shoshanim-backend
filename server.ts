@@ -39,7 +39,7 @@ app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-setInterval(simulateUser, 50 * 60 * 100);
+setInterval(simulateUser, 15 * 60 * 1000);
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there

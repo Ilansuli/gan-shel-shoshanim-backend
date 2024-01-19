@@ -32,15 +32,14 @@ import { router as categoryRoutes } from "./api/category/category.routes";
 import { router as projectRoutes } from "./api/project/project.routes";
 import { insertProject } from "./services/project.service";
 import { log } from "./middlewares/logger.middleware";
+import { simulateUserActivity } from "./services/simulate.user.service";
 
 // routes
 app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-const backgroundAction = setInterval(() => {
-  console.log("action");
-}, 15 * 60 * 100);
+simulateUserActivity();
 
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with

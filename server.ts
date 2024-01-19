@@ -38,10 +38,9 @@ app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-// insertProject(
-//   "C:/Users/ilans/dev/Projects/Gan-Shel-Shohanim - React+Vite/frontend/public/images/gallery/placeholder",
-//   "ראשלצ"
-// );
+const backgroundAction = setInterval(() => {
+  console.log("action");
+}, 15 * 60 * 100);
 
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with

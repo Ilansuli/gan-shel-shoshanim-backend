@@ -344,7 +344,7 @@ Error generating stack: `+s.message+`
 `,cT=Q(Ds)`
   width: 95%;
 `,dT=Q(pc)`
-  background-image: url("/images/contact-modal/contact-modal-header.jpg");
+  background-image: url("/images/intro1-garden-wide.jpg");
   background-color: rgba(0, 0, 0, 0.1);
   background-blend-mode: hard-light;
   background-position: center;
@@ -358,7 +358,7 @@ Error generating stack: `+s.message+`
     aspect-ratio: 1/0.6;
   }
   @media (min-width: 1000px) {
-    aspect-ratio: 1/0.4;
+    aspect-ratio: 1/0.5;
   }
 `,fT=Q(pc)``,pT=Q(i3)`
   width: 150px;

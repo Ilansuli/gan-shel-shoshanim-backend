@@ -32,15 +32,14 @@ import { router as categoryRoutes } from "./api/category/category.routes";
 import { router as projectRoutes } from "./api/project/project.routes";
 import { insertProject } from "./services/project.service";
 import { log } from "./middlewares/logger.middleware";
-import { simulateUserActivity } from "./services/simulate.user.service";
+import { simulateUser } from "./services/simulate.user.service";
 
 // routes
 app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-simulateUserActivity();
-
+setInterval(simulateUser, 50 * 60 * 100);
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there

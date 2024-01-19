@@ -1,28 +1,19 @@
-import puppeteer from "puppeteer";
+export const simulateUser = async () => {
+  const puppeteer = require("puppeteer");
+  let browser, page;
 
-const visitWebsite = async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+  try {
+    browser = await puppeteer.launch({ headless: true });
+    page = await browser.newPage();
 
-  // Replace 'your_website_url' with the actual URL of your webpage
-  await page.goto("www.ganshelshoshanim.com");
-
-  // Wait for the page to load, adjust the timeout as needed
-  await new Promise((r) => setTimeout(r, 3000));
-
-  // Close the browser
-  await browser.close();
-};
-
-// Set the interval (in milliseconds) at which you want to visit the website
-const visitInterval = 10 * 60 * 1000; // 10 minutes
-
-// Function to repeatedly visit the website at specified intervals
-export const simulateUserActivity = () => {
-  visitWebsite(); // Initial visit
-
-  // Schedule subsequent visits at the specified interval
-  setInterval(() => {
-    visitWebsite();
-  }, visitInterval);
+    // Navigate to the URL
+    await page.goto("https://ganshelshoshanim.com/");
+  } catch (error) {
+    console.error("Error during scraping:", error);
+    return null; // You can handle the error or return a specific value
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
+  }
 };

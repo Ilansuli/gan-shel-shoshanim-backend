@@ -1,6 +1,6 @@
 import express from "express";
 import { loggerService } from "./services/logger.service";
-
+import axios from "axios";
 import cors from "cors";
 import path from "path";
 
@@ -39,7 +39,15 @@ app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-setInterval(simulateUser, 15 * 60 * 1000);
+app.use("/api/test", async (req, res) => {
+  try {
+    res.send("test");
+  } catch (err) {
+    loggerService.error("Failed to get test", err);
+    res.status(500).send({ err: "Failed to get test" });
+  }
+});
+
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there

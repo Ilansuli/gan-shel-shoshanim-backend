@@ -39,7 +39,7 @@ app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-app.use("/api/test", async (req, res) => {
+app.get("/api/test", async (req, res) => {
   try {
     res.send("test");
   } catch (err) {

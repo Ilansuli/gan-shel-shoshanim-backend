@@ -39,23 +39,7 @@ app.use("/api/galleryImgs", galleryImgsRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/projects", projectRoutes);
 
-app.get("/api/test", async (req, res) => {
-  try {
-    res.send("test");
-  } catch (err) {
-    loggerService.error("Failed to get test", err);
-    res.status(500).send({ err: "Failed to get test" });
-  }
-});
 
-setInterval(async () => {
-  try {
-    const response = await axios.get(`https://ganshelshoshanim.com/api/test`);
-    console.log("Request to / successful:", response.data);
-  } catch (error) {
-    console.error("Error making request to /:", error.message);
-  }
-}, 10 * 60 * 1000);
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/station/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there
